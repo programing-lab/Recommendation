@@ -1,0 +1,33 @@
+启动流程：1.spark 只需要在127上 /mnt/share/hadoop-2.6.5/sbin/start-all.sh
+  2.zookeeper 在三个节点上：/mnt/share/zookeeper-3.4.10/bin/zkServer.sh start
+  3.启动pio :pio-start-all
+
+hadoop:
+1.主节点10.10.181.127，（把core-site.xml的端口改为9100）
+2.从节点10.10.181.128，10.10.181.129
+3.主机映射
+	10.10.181.127	master
+	10.10.181.128	slaver1
+	10.10.181.129	slaver2
+4.启动可以用bin/start-all.sh,使用jps查看是否成功
+5.检测是否启动在游览器上：
+http://10.10.181.127:50070/dfshealth.html#tab-datanode
+
+zookeeper：
+1.myid设置
+	10.10.181.127	1
+	10.10.181.128	2
+	10.10.181.129	3
+2.启动节点：cd /mnt/share/zookeeper-3.4.10/bin/
+	    ./zkServer.sh start(三个节点上都执行，在bin下可用./zkServer.sh status查看谁是leader谁是follower)
+
+scala:
+已经配置好了path直接使用scala即可进入
+
+
+pio启动：
+已经配置好path，pio-start-all然后pio status(若没有报错则成功启动)，然后再pio build,pio train, pio deploy
+pio增加app:pio app list(查看所有app) ,pio app new appnew(新增app) ,pio app delete appname(删除app)
+
+
+
