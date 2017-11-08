@@ -1,0 +1,40 @@
+KRD20g53_G5xcW7iv0Psm-IsKq2bTEiTI9DaUUP3fmPkTb--4SOGdOvulSfhq7Wr
+
+pio import --appid 19 --input import_data_users_inline.json
+netstat -tunlp|grep 8000
+
+[INFO] [DataSource] Received events List(purchase, visit, bookmark, shopping-cart)
+[INFO] [Engine$] com.actionml.TrainingData does not support data sanity check. Skipping check.
+[INFO] [Preparator] EventName: purchase
+[INFO] [Preparator] Dimensions rows : 11 columns: 11                            
+[INFO] [Preparator] Number of user-ids after creation: 11
+[INFO] [Preparator] EventName: visit
+[INFO] [Preparator] Dimensions rows : 11 columns: 5                             
+[INFO] [Preparator] Number of user-ids after creation: 11
+[INFO] [Preparator] EventName: bookmark
+[Stage 81:==========================================>             (15 + 5) / 20][INFO] [Preparator] Dimensions rows : 11 columns: 5
+[INFO] [Preparator] Number of user-ids after creation: 11                       
+[INFO] [Preparator] EventName: shopping-cart
+[Stage 96:==============================>                         (11 + 8) / 20][INFO] [Preparator] Dimensions rows : 11 columns: 5
+[INFO] [Preparator] Number of user-ids after creation: 11                       
+[INFO] [Engine$] com.actionml.PreparedData does not support data sanity check. Skipping check.
+[INFO] [URAlgorithm] Actions read now creating correlators
+[INFO] [PopModel] PopModel popular using end: 2017-11-07T05:02:40.073-05:00, and duration: 315360000, interval: 2007-11-10T05:02:40.073-05:00/2017-11-07T05:02:40.073-05:00
+[INFO] [PopModel] PopModel getting eventsRDD for startTime: 2007-11-10T05:02:40.073-05:00 and endTime 2017-11-07T05:02:40.073-05:00
+[INFO] [URAlgorithm] Correlators created now putting into URModel
+[INFO] [URAlgorithm] Index mappings for the Elasticsearch URModel: Map(shopping-cart -> (string,true), user-profile -> (string,true), visit -> (string,true), purchase -> (string,true), bookmark -> (string,true), item-profile -> (string,true), popRank -> (float,false))
+[INFO] [URModel] Converting cooccurrence matrices into correlators
+[INFO] [URModel] Group all properties RDD
+curl -H "Content-Type: application/json" -d '
+{
+    "item": "75"
+}' http://localhost:8000/queries.json;
+"user":"101"
+
+curl -H "Content-Type: application/json" -d '
+{
+   
+}' http://localhost:8000/queries.json;
+
+
+     
